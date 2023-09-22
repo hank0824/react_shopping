@@ -8,9 +8,9 @@ import List from "./components/list";
 const Home = () => {
     return (
         <div>
-            <div id="a" class="rwd-table  table-responsive-sm mt-3">
-                <h1 class="container d-flex justify-content-center" >購買專輯</h1>
-                <table class="table container">
+            <div id="a" className="rwd-table  table-responsive-sm mt-3">
+                <h1 className="container d-flex justify-content-center" >購買專輯</h1>
+                <table className="table container">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
