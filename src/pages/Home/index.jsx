@@ -25,7 +25,6 @@ const Home = () => {
                             <th scope="col">專輯圖片</th>
                             <th scope="col">售價</th>
                             <th scope="col" className="text-center">數量</th>
-
                         </tr>
                     </thead>
                     <tbody>
