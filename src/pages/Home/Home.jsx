@@ -1,22 +1,40 @@
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css"
 import Product from "./components/list";
 import Total from "./components/total";
-import Data from './components/product.json';
+
+import Title from "./components/Title";
 
 const Home = () => {
     const [totalCash, setTotalCash] = useState(0);
+    const [Data, setData] = useState([]);
 
+    useEffect(() => {
+        fetch('https://raw.githubusercontent.com/hank0824/DemoApi/main/product.json')
+            .then(response => response.json())
+            .then(data => setData(data))
+    }, [])
 
     const calculate = (price) => {
         setTotalCash(parseInt(totalCash + price));
     }
+
+    const [input, setInput] = useState([]);
+    useEffect(() => {
+        if (input.length > 4) {
+            console.log('字串夠長');
+        } else {
+            console.log('字串太短');
+        }
+    }, [input])
+
     return (
         <div>
+            <input type="text" onChange={e => setInput(e.target.value)} />
             <div id="a" className="rwd-table  table-responsive-sm mt-3">
-                <h1 className="container d-flex justify-content-center" >購買專輯</h1>
+                <Title mainTitle={"請選擇要購買的專輯"} />
                 <table className="table container">
                     <thead>
                         <tr>
@@ -35,14 +53,15 @@ const Home = () => {
                                 name={p.name}
                                 price={p.price}
                                 img={p.img}
-
                                 onCalculate={calculate}
                             />
                         ))}
 
                     </tbody>
-                    <Total totalCash={totalCash} />
                 </table>
+                <div className="container">
+                    <Total totalCash={totalCash} />
+                </div>
             </div>
         </div>
     )
