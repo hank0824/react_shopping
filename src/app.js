@@ -12,6 +12,7 @@ export default function App() {
             <Link to="/checkout">購物車</Link>
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/react_shopping' element={<Home />} />
                 <Route path='/checkout' element={<Checkout />} />
                 <Route path='/product' element={<ProductDetail />} >
                 <Route path=':id' element={<ProductDetail />}/>
