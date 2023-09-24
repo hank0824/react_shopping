@@ -4,35 +4,27 @@ import React, { useState, useEffect } from "react";
 import "./index.css"
 import Product from "./components/list";
 import Total from "./components/total";
-
+import Data from './components/product.json'
 import Title from "./components/Title";
 
 const Home = () => {
     const [totalCash, setTotalCash] = useState(0);
-    const [Data, setData] = useState([]);
+    // const [Data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch('https://raw.githubusercontent.com/hank0824/DemoApi/main/product.json')
-            .then(response => response.json())
-            .then(data => setData(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://raw.githubusercontent.com/hank0824/DemoApi/main/product.json')
+    //         .then(response => response.json())
+    //         .then(data => setData(data))
+    // }, [])
 
     const calculate = (price) => {
         setTotalCash(parseInt(totalCash + price));
     }
 
-    const [input, setInput] = useState([]);
-    useEffect(() => {
-        if (input.length > 4) {
-            console.log('字串夠長');
-        } else {
-            console.log('字串太短');
-        }
-    }, [input])
+
 
     return (
         <div>
-            <input type="text" onChange={e => setInput(e.target.value)} />
             <div id="a" className="rwd-table  table-responsive-sm mt-3">
                 <Title mainTitle={"請選擇要購買的專輯"} />
                 <table className="table container">
