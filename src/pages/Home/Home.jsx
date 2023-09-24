@@ -1,6 +1,6 @@
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./index.css"
 import Product from "./components/list";
 import Total from "./components/total";
