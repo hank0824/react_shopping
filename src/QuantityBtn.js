@@ -5,12 +5,12 @@ export default function QuantityBtn({productInfo}) {
 
     const {cartItems, setCartItems} = useContext(CartContext)
 
-    //購物車內有冇該產品
+    //購物車內有沒有該產品
     let productIndexInCart = cartItems.findIndex((element)=>{
         return element.id === productInfo.id
     })
     //findIndex()
-    //如果係購物車內找到該件產品 => 返回索引位置 0, 1, 2, 3.....
+    //如果在購物車內找到該件產品 => 返回索引位置 0, 1, 2, 3.....
     //該件產品沒有被加入過去購物車 => 返回 -1
 
     let [numInCart,setNumInCart] = useState(
